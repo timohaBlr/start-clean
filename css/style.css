@@ -133,10 +133,9 @@ button {
     display: flex;
     width: 150px;
     height: 55px;
-    padding: 18px 54px;
+    padding: 17px 45px;
     justify-content: center;
     align-items: center;
-    gap: 10px;
 }
 
 .top__inner {
@@ -163,20 +162,18 @@ button {
 
 .section__container {
     display: grid;
-    grid-template-columns: 370px auto;
+    grid-template-columns: 370px 1fr;
     padding: 150px 20px;
-}
-
-.section__description {
-    min-width: 370px;
+    gap: 30px 5px;
 }
 
 .section__content {
     display: flex;
     align-items: center;
-    gap: 0 20px;
+    justify-content: center;
+    gap: 0 15px;
     position: relative;
-    padding-bottom: 50px;
+    padding-bottom: 70px;
 }
 
 .section__content::before {
@@ -195,14 +192,15 @@ button {
     background-color: #7B6152;
     position: absolute;
     left: 22px;
-    bottom: 9px;
+    bottom: 8px;
     width: 1000%;
     height: 1px;
 }
 
 
 .section__about {
-    padding: 0 0 50px 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .about {
@@ -211,9 +209,9 @@ button {
 }
 
 .about__inner {
-    display: flex;
     align-items: center;
-    padding: 50px 0 50px 10px;
+    padding: 0 0 50px;
+    gap: 30px 110px;
 }
 
 .about__item-text {
@@ -228,9 +226,10 @@ button {
 
 .products__list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    grid-template-columns:  repeat(auto-fit, minmax(231px, 1fr));
     gap: 50px 40px;
-    margin-right: 50px;
+    width: 100%;
 }
 
 .products__item {
@@ -238,9 +237,15 @@ button {
     flex-direction: column;
     align-items: center;
     color: var(--text--color-black);
+    max-width: 290px;
+    height: 100%;
 }
 
-.products__item-price, .products__item-title {
+.products__item-img {
+    width: 100%;
+}
+
+.products__item-price-title {
     font-family: Yeseva One, cursive;
     font-size: 16px;
     font-weight: 400;
@@ -255,7 +260,7 @@ button {
     line-height: normal;
     margin-top: 12px;
     margin-bottom: 27px;
-    min-height: 42px;
+    height: 100%;
 }
 
 
@@ -316,21 +321,33 @@ button {
     .section__container {
         grid-template-columns: 300px auto;
     }
-    .section__description {
-        min-width: 300px;
+
+    .section__title {
+        font-size: 40px;
     }
 
-    .section__content {
-        padding: 0 0 50px 20px;
-    }
-
-    .about__inner {
-        padding: 50px 0 50px 20px;
+    .section__text {
+        font-size: 14px;
     }
 
     .products__list {
-        gap: 65px;
+        grid-template-columns:  repeat(auto-fit, minmax(200px, 1fr));
+        gap: 60px 30px;
     }
+
+    .products__item-price-title {
+        font-size: 16px;
+    }
+
+    .products__item-description {
+        font-size: 12px;
+    }
+
+
+    .about__inner {
+        gap: 30px 20px;
+    }
+
 
 }
 
@@ -338,6 +355,11 @@ button {
     .header__menu-list {
         gap: 16px;
     }
+
+    .products__list {
+        gap: 60px 15px;
+    }
+
 
     .footer__inner {
         flex-wrap: wrap;
@@ -402,12 +424,13 @@ button {
     }
 
     .about__inner {
-        padding: 50px 5px 50px 20px;
-        align-items: start;
+        padding-bottom: 70px;
     }
+
     .section__container {
         grid-template-columns: 200px auto;
     }
+
     .section__description {
         min-width: 200px;
     }
@@ -418,14 +441,12 @@ button {
 
     .section__text {
         font-size: 10px;
-        margin-top: 20px;
+        margin-top: 15px;
     }
 
-    .section__content {
-        padding: 0 0 30px 10px;
-        margin-left: 32px;
-        gap: 0 10px;
-    }
+.section__about{
+    padding-bottom: 30px;
+}
 
     .about__item img {
         width: 120px;
@@ -437,6 +458,29 @@ button {
 
     .about__item-text {
         font-size: 6px;
+    }
+
+    .products__list {
+        grid-template-columns: repeat(auto-fit, minmax(183px, 1fr));
+        gap: 30px 10px;
+    }
+
+    .products__item-price-title {
+        font-size: 12px;
+        margin-top: 5px;
+        margin-bottom: 2px;
+    }
+
+    .products__item-description {
+        font-size: 8px;
+        margin-top: 8px;
+        margin-bottom: 20px;
+    }
+
+    .custom__button {
+        width: 103px;
+        height: 35px;
+        padding: 10px 25px;
     }
 
     .footer {
@@ -482,9 +526,34 @@ button {
         order: 1;
     }
 
-    .section__content {
-        margin-left: 10px;
+
+
+    .about__inner > .section__description {
+        text-align: start;
     }
+
+    .section__container {
+        grid-template-columns: 1fr;
+        padding: 50px 10px;
+        justify-items: center;
+    }
+    .about__inner {
+        display: flex;
+        text-align: start;
+        padding: 0 0 50px 10px;
+    }
+
+    .section__description {
+        text-align: center;
+        width: 300px;
+    }
+
+    .products__list {
+        grid-template-columns: repeat(2, 200px);
+        gap: 30px 10px;
+    }
+
+
 }
 
 @media (max-width: 500px) {
@@ -540,7 +609,14 @@ button {
         font-size: 10px;
         width: 90px;
         height: 35px;
-        padding: 14px 41px;
+        padding: 11px 23px;
+    }
+
+    .section__container {
+        gap: 25px 15px;
+    }
+    .about__inner {
+        padding: 50px 10px;
     }
 
     .section__description {
@@ -548,10 +624,24 @@ button {
     }
 
     .section__content {
-        padding: 20px 0 60px 10px;
-        margin-left: 5px;
         gap: 0 5px;
         align-items: end;
+    }
+
+    .products__list {
+        grid-template-columns: repeat(2, 150px);
+        gap: 40px 10px;
+    }
+
+    .products__item-price-title {
+        margin-top: 5px;
+        font-size: 10px;
+    }
+
+    .products__item-description {
+        font-size: 6px;
+        margin-top: 2px;
+        margin-bottom: 15px;
     }
 
     .about__item img {
@@ -599,16 +689,22 @@ button {
 
 
     .about__inner {
-        padding: 25px 10px 10px 10px;
+        padding: 25px 10px 40px 10px;
+    }
+    .section__about{
+        padding-top: 0;
     }
 
     .section__description {
         min-width: 235px;
     }
 
-    .section__content {
-        margin-left: 15px;
-        padding: 15px 0 40px 10px;
+    .section__text {
+        font-size: 8px;
+    }
+
+    .products__list {
+        gap: 25px 10px;
     }
 
     .about__item:not(:first-child) {
