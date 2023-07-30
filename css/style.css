@@ -9,6 +9,7 @@ html {
     --button--color: #FFBD59;
     --text--color-white: #FAFAFA;
     --text--color-black: #000000;
+    --text--color-beige: #BEA495;
 }
 
 *,
@@ -264,6 +265,47 @@ button {
 }
 
 
+.steps__list{
+    display: grid;
+    justify-items: center;
+    grid-template-columns:  repeat(auto-fit, minmax(300px, 1fr));
+    gap: 70px 25px;
+    width: 100%;
+    counter-reset: number;
+}
+.steps__item {
+    display: flex;
+    gap: 0 35px;
+    position: relative;
+}
+.steps__item-description{
+    flex-basis: 174px;
+    padding-bottom: 40px;
+
+}
+.steps__item::before {
+    counter-increment: number;
+    content: '0' counter(number);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: var(--text--color-beige);
+    font-family: Yeseva One, cursive;
+    font-size: 30px;
+    line-height: normal;
+}
+.steps__item-right::before {
+    left: auto;
+    right: 0;
+}
+.steps__item:nth-child(n+10)::before {
+    content: counter(number);
+}
+
+
+
+
+
 .footer {
     padding-top: 40px;
     padding-bottom: 35px;
@@ -444,9 +486,9 @@ button {
         margin-top: 15px;
     }
 
-.section__about{
-    padding-bottom: 30px;
-}
+    .section__about {
+        padding-bottom: 30px;
+    }
 
     .about__item img {
         width: 120px;
@@ -527,7 +569,6 @@ button {
     }
 
 
-
     .about__inner > .section__description {
         text-align: start;
     }
@@ -537,6 +578,7 @@ button {
         padding: 50px 10px;
         justify-items: center;
     }
+
     .about__inner {
         display: flex;
         text-align: start;
@@ -615,6 +657,7 @@ button {
     .section__container {
         gap: 25px 15px;
     }
+
     .about__inner {
         padding: 50px 10px;
     }
@@ -691,7 +734,8 @@ button {
     .about__inner {
         padding: 25px 10px 40px 10px;
     }
-    .section__about{
+
+    .section__about {
         padding-top: 0;
     }
 
