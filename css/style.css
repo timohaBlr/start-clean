@@ -163,7 +163,7 @@ button {
 
 .section__container {
     display: grid;
-    grid-template-columns: 370px 1fr;
+    grid-template-columns: minmax(300px, 370px) auto;
     padding: 150px 20px;
     gap: 30px 5px;
 }
@@ -211,7 +211,7 @@ button {
 
 .about__inner {
     align-items: center;
-    padding: 0 0 50px;
+    padding: 0 0 50px 20px;
     gap: 30px 110px;
 }
 
@@ -227,10 +227,10 @@ button {
 
 .products__list {
     display: grid;
-    justify-items: center;
-    grid-template-columns:  repeat(auto-fit, minmax(231px, 1fr));
+    /*justify-items: center;*/
+    grid-template-columns:  auto auto;
     gap: 50px 40px;
-    width: 100%;
+    /*width: 100%;*/
 }
 
 .products__item {
@@ -238,8 +238,9 @@ button {
     flex-direction: column;
     align-items: center;
     color: var(--text--color-black);
-    max-width: 290px;
+    width: 290px;
     height: 100%;
+    margin: 0 auto;
 }
 
 .products__item-img {
@@ -265,24 +266,26 @@ button {
 }
 
 
-.steps__list{
+.steps__list {
     display: grid;
     justify-items: center;
-    grid-template-columns:  repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns:  repeat(2, minmax(300px, 370px));
     gap: 70px 25px;
     width: 100%;
     counter-reset: number;
 }
+
 .steps__item {
     display: flex;
     gap: 0 35px;
     position: relative;
 }
-.steps__item-description{
+
+.steps__item-description {
     flex-basis: 174px;
     padding-bottom: 40px;
-
 }
+
 .steps__item::before {
     counter-increment: number;
     content: '0' counter(number);
@@ -294,16 +297,15 @@ button {
     font-size: 30px;
     line-height: normal;
 }
+
 .steps__item-right::before {
     left: auto;
     right: 0;
 }
+
 .steps__item:nth-child(n+10)::before {
     content: counter(number);
 }
-
-
-
 
 
 .footer {
@@ -361,7 +363,7 @@ button {
     }
 
     .section__container {
-        grid-template-columns: 300px auto;
+        grid-template-columns: minmax(200px, 300px) auto;
     }
 
     .section__title {
@@ -383,6 +385,24 @@ button {
 
     .products__item-description {
         font-size: 12px;
+    }
+
+    .steps__list {
+        grid-template-columns:  repeat(2, minmax(200px, 300px));
+        gap: 35px 25px;
+    }
+
+    .steps__item {
+        gap: 0 20px;
+    }
+
+    .steps__item-description {
+        flex-basis: 142px;
+        padding-bottom: 40px;
+    }
+
+    .step__item-img {
+        max-width: 130px;
     }
 
 
